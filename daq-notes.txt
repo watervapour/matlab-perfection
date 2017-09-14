@@ -1,14 +1,41 @@
 The mydaq microcontroller has no onboard memory, so it has to be plugged into a pc to function.
 
-outputSingleScan
 
+All code examples given in forms that work for the equipment projects use.
+////////////////////
+// Code examples  //
+////////////////////
+
+getDevices
+d = daq.getDevices
+only necessary if multiple daq devices are plugged into a single system, can be left out for project.
+
+
+createSession
+s = daq.createSession('ni')
+the variable is used in the other daq function to refer to the device 'ni' refers to the vendor of the device
+
+
+addDigitalChannel
+s.addDigitalChannel('myDAQ1', channelID, I/O)
+channelID given in form 'port0/line1' line can increment (such as mass declaring motor pins) line4:7
+port0 is for digital pins (despite the switch inputs labeled as DI:x)
+I/O use 'InputOnly' or 'OutputOnly' depending on purpose.
+
+
+addAnalogChannel
+follows same format as addDigitalChannel but uses port1
+only used for the ligth sensors on the analog channels
+
+
+outputSingleScan
 sends voltage to output pins that are given a value of 1 in the array sent to the function eg;
 outputSingleScan(s, [0 1 0 0]);
 where s is the daq session ( s = daq.createSession('ni'); ).
 this would power the 2nd pin to be declared an output.
 
-inputSingleScan
 
+inputSingleScan
 reads values for all input pins designated should be used as a function of a variable eg;
 data = inputSingleScan(s);
 where s is the daq session ( s = daq.createSession('ni'); ).
