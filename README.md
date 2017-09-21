@@ -7,5 +7,7 @@ A repo of some matlab code to run my uni project.
 
 
 Matlab is so bad
+
 Inconsistant syntax
+
 Headache inducing
