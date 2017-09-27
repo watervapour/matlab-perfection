@@ -12,5 +12,6 @@ function turnAround()
     pause(0.3)
     digitalOut(s, 'SM')
     
-    
+    % center servo
+    servoControl(0)
 end

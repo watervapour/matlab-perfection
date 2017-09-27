@@ -17,14 +17,12 @@ function puckCode(sensor)
         digitalOut(s, 'CC')
         
         if NORTH == 1
-            digitalOut('TR')
-            pause(0.3)
-            digitalOut('DF')
+            servoControl(90)
         else
-            digitalOut('TL')
-            pause(0.3)
-            digitalOut('DF')
+            servoControl(-90)
         end
+        
+        digitalOut(s, 'DF')
         
         
     end

@@ -1,0 +1,1 @@
+We discovered that the servo can only rotate through 90 degrees. As we need 180 to be able to turn a redseign was required.

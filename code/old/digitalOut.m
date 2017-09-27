@@ -9,13 +9,13 @@ function digitalOut(src, dir)
         pause(0.2)
         outputSingleScan(src, [0 0 0 0 0])
     elseif dir == 'DF' % Drive Forwards
-        outputSingleScan(src, [0 1 0 1 0])
+        outputSingleScan(src, [0 0 1  0 0])
     elseif dir == 'DB' % Drive Backwards
-        outputSingleScan(src, [0 0 1 0 1])    
-    elseif dir == 'TL' % Claw Open
-        outputSingleScan(src, [0 0 1 1 0])
-    elseif dir == 'TR' % Claw Close
-        outputSingleScan(src, [0 1 0 0 1])
+        outputSingleScan(src, [0 1 0 0 0])    
+    elseif dir == 'CO' % Claw Open
+        outputSingleScan(src, [0 0 0 1 0])
+    elseif dir == 'CC' % Claw Close
+        outputSingleScan(src, [0 0 0 0 1])
     elseif dir == 'SM' % Stop Motors
         outputSingleScan(src, [0 0 0 0 0])
     end
