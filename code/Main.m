@@ -22,8 +22,8 @@ while true
     end
     
     % check if we have a puck
-    puckCode(data(4),data(5))
+    puckCode(data(4), data(5))
     
     % drive
-    output(s, 'DF')
+    output(s, 'DF', 0)
 end

@@ -11,7 +11,7 @@
 global LEDSTATE;
 global SERVOPOS;
 
-function output(src, dir)
+function output(src, dir, dur)
     if dir == 'DF' % Drive Forwards
         outputSingleScan(src, [LEDSTATE 0 1 1 0 SERVOPOS])
     elseif dir == 'DB' % Drive Backwards
@@ -24,5 +24,9 @@ function output(src, dir)
         outputSingleScan(src, [LEDSTATE 0 0 0 0 SERVOPOS])
     elseif dir == 'LS'
         outputSingleScan(src, [LEDSTATE 0 0 0 0 SERVOPOS])
+    end
+    
+    if dur ~= 0
+        pause(dur)
     end
 end
