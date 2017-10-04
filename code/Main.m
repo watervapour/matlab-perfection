@@ -8,6 +8,8 @@ s.addAnalogInputChannel('myDAQ1', 'ai0:1', 'Voltage')
 s.addAnalogOutputChannel('myDAQ1', 'ao0', 'Voltage')
 
 global NORTH; % direction bot is facing
+global LEDSTATE;
+global SERVOPOS;
 
 while true
     % read inputs
@@ -16,11 +18,12 @@ while true
     % have we hit arena wall?
     if data(1) == 1
         % Run turn around script
+        turnAround()
     end
     
     % check if we have a puck
-    puckCode(data(4))
+    puckCode(data(4),data(5))
     
     % drive
-    digitalOut(s, 'DF')
+    output(s, 'DF')
 end
