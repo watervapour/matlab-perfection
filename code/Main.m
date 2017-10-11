@@ -18,11 +18,20 @@ while true
     % have we hit arena wall?
     if data(1) == 1
         % Run turn around script
-        turnAround()
+        % back up a little
+        output(s, 'DB', 0.1)
+    
+        if NORTH == 1
+            % Turn R
+            output(s, 'TR', 0.2)
+        else
+            % Turn L
+            output(s, 'TL', 0.2)
+        end
     end
     
     % check if we have a puck
-    puckCode(data(4), data(5))
+    puckCode(data(4))
     
     % drive
     output(s, 'DF', 0)

@@ -1,12 +1,12 @@
 global NORTH;
 global LEDSTATE;
 global SERVOPOS;
-bLow = xx;
-bHigh = xx;
-rLow = xx;
-rHigh = xx;
-gLow = xx;
-gHigh = xx;
+bLow = 0.29;
+bHigh = 0.29;
+rLow = 1.1;
+rHigh = 1.25;
+gLow = 0.65;
+gHigh = 0.67;
 
 function puckCode(colour)
     if colour > bLow && colour < bHigh
@@ -50,6 +50,7 @@ function puckCode(colour)
             output(s, 'TL', 0.3)
         end
     end
+    
     output(s, 'DF', 0)
     
     % safe zone code
