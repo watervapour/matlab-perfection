@@ -1,0 +1,36 @@
+Definitions:
+
+'North' and 'up'
+When refering to diretions within the arena, North is used to refer to the upper end of the arena
+
+____________________________________
+|                             |    |        North
+|                             |    |          /\
+|                             |    |          ||
+|         Arena               |Safe|        --||--
+|                             |Zone|          ||
+|                             |    |
+|                             |    |
+|                             |    |
+|_____________________________|____|
+
+
+
+
+Code results by section:
+
+
+Turn around code
+	- Drive in an S shaped pattern from bottom to top of arena, slowly migrating to the right
+	  this means it will cover the entire arena
+ _   _
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| |_| |_|
+
+	- When it detects that it has hit a 'north'/'south' wall will turn in a shallow circle to
+	  the 'east'
