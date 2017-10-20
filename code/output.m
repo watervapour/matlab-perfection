@@ -8,10 +8,11 @@
 %
 % (6) | ao0 | Servo
 
-global LEDSTATE;
-global SERVOPOS;
-
 function output(src, dir, dur)
+
+global LEDSTATE
+global SERVOPOS
+
     if dir == 'DF' % Drive Forwards
         outputSingleScan(src, [LEDSTATE 0 1 1 0 SERVOPOS])
     elseif dir == 'DB' % Drive Backwards
@@ -20,9 +21,9 @@ function output(src, dir, dur)
         outputSingleScan(src, [LEDSTATE 0 1 0 1 SERVOPOS])
     elseif dir == 'TR' % Turn right
         outputSingleScan(src, [LEDSTATE 1 0 1 0 SERVOPOS])
-    elseif dir == 'WTL' % Wide turn left
+    elseif dir == 'WL' % Wide turn left
         outputSingleScan(src, [LEDSTATE 0 1 0 0 SERVOPOS])
-    elseif dir == 'WTR' % Wide turn right
+    elseif dir == 'WR' % Wide turn right
         outputSingleScan(src, [LEDSTATE 0 0 1 0 SERVOPOS])
     elseif dir == 'DS' % Stop Motors
         outputSingleScan(src, [LEDSTATE 0 0 0 0 SERVOPOS])
