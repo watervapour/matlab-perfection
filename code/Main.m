@@ -87,27 +87,28 @@ while data(2) == 0
         % Evade puck (drive around its right side)
         
         % Back up a little
-        output(s, 'DB', 0.1)
+        output(s, 'DB', 0.3)
 
         if NORTH == 1
             % Turn R
-            output(s, 'TR', 0.1)
+            output(s, 'TR', 0.2)
         else
             % Turn L
-            output(s, 'TL', 0.1)
+            output(s, 'TL', 0.2)
         end
 
         % power motor for a bit
-        output(s, 'DF', 0.3)
-        output(s, 'DS', 0)
+        output(s, 'DF', 0.5)
 
         % Snake around
         if NORTH == 1
-            output(s, 'WL', 0.1)
-            output(s, 'WR', 0.1)
+            output(s, 'WL', 1)
+            output(s, 'DF', 0.5)
+            output(s, 'TR', 0.2)
         else
             output(s, 'WR', 0.1)
-            output(s, 'WL', 0.1)
+            output(s, 'DF', 0.5)
+            output(s, 'TL', 0.2)
         end
         
     % Check if the colour sensor is detecting a red puck

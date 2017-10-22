@@ -27,9 +27,11 @@ addDigitalChannel
     - I/O use 'InputOnly' or 'OutputOnly' depending on purpose.
 
 
-addAnalogChannel
-- follows same format as addDigitalChannel
-  - uses port1
+addAnalogInputChannel / addAnalogOutputChannel
+- declares what an analog port will be measuring
+  s.addAnalogOutputChannel('myDAQ1', 'ao0', 'Voltage')
+  - uses ai for inputs and ao for outputs
+  - measurement type is always 'Voltage', at least, for this project
 - only used for the phototransistors on the analog channels
 
 
