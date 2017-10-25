@@ -1,5 +1,7 @@
 clear;clc;
 
+% useless command, but matlab might be happier
+d = daq.getVendors;
 % Create session
 s = daq.createSession('ni');
 
@@ -43,7 +45,7 @@ SERVOPOS = 10;
 % the 'low' and 'high' indicate what is being deteced
 rLow = 1.0;   % Maximum value for red puck
 rHigh = 2; % Maximum value for red puck
-bLow = 0.31;  % Minumum value for blue puck
+bLow = 0.29;  % Minumum value for blue puck
 bHigh = 0.33; % Maximum value for blue puck
 lLow = 0.1;  % Maximum value for safe zone line
 lHigh = 0.16; % Maximum value for safe zone line
@@ -82,7 +84,6 @@ while data(2) == 0
     
     % Check if the colour sensor is detecting a blue puck
     if data(4) > bLow && data(4) < bHigh 
-        fprintf('Blue detected! \n')
         % BLUE
         % Evade puck (drive around its right side)
         
@@ -113,7 +114,6 @@ while data(2) == 0
         
     % Check if the colour sensor is detecting a red puck
     elseif data(4) > rLow && data(4) < rHigh
-        fprintf('Red detected! \n')
         % RED
         
         fprintf('\n servo! \n')
@@ -121,23 +121,19 @@ while data(2) == 0
         LEDSTATE = 1;
         SERVOPOS = 8;
         output(s, 'LS', 0.5)
-        fprintf('Servo closed! \n')
         
+        % back up
         output(s, 'DB', 0.2)
         
         % Turn to face safe zone
-        fprintf('Turning! \n')
         if NORTH == 1
-            fprintf('Turning right! \n')
             output(s, 'WR', 0.45)
             output(s, 'TR', 0.2)
         else
-            fprintf('Turning left! \n')
             output(s, 'WL', 0.45)
             output(s, 'TL', 0.2)
         end
     
-        fprintf('driving! \n')
         % Drive towards safe zone
         output(s, 'DF', 0)
 
@@ -146,9 +142,16 @@ while data(2) == 0
         notSafe = true;
         while notSafe == true % Drive until we see safe zone
             data = inputSingleScan(s);
+            if data(1) == 1
+                % unexpected wall collission, turing to fix
+                output(s, 'DB', 0.2)
+                output(s, 'TR', 0.5)
+                % continue to drive forwards
+                output(s, 'DF', 0)
             if data(5) > lLow && data(5) < lHigh
                 notSafe = false;
             end
+            
         end
         pause(0.3) % Keep driving so robot is well within safe zone
 
