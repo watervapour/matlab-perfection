@@ -148,6 +148,7 @@ while data(2) == 0
                 output(s, 'TR', 0.5)
                 % continue to drive forwards
                 output(s, 'DF', 0)
+            end
             if data(5) > lLow && data(5) < lHigh
                 notSafe = false;
             end
