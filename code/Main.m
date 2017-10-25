@@ -45,10 +45,10 @@ SERVOPOS = 10;
 % the 'low' and 'high' indicate what is being deteced
 rLow = 1.0;   % Maximum value for red puck
 rHigh = 2; % Maximum value for red puck
-bLow = 0.29;  % Minumum value for blue puck
-bHigh = 0.33; % Maximum value for blue puck
-lLow = 0.1;  % Maximum value for safe zone line
-lHigh = 0.16; % Maximum value for safe zone line
+bLow = 0.23;  % Minumum value for blue puck
+bHigh = 0.35; % Maximum value for blue puck
+lLow = 0.07;  % Maximum value for safe zone line
+lHigh = 0.17; % Maximum value for safe zone line
 
 
 % Eternally looping program, equivilant to main() for arduino
